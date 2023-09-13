@@ -1,0 +1,34 @@
+from mpmath import mp
+
+def search_pi_all(pattern, precision=25000):
+    # Set the desired precision for Pi
+    mp.dps = precision
+
+    # Get the string representation of Pi with the desired precision
+    pi_string = str(mp.pi)[2:]  # Start from index 2 to remove "3."
+
+    # Initialize a list to store the positions where the pattern is found
+    positions = []
+    index = pi_string.find(pattern)
+
+    while index != -1:
+        positions.append(index)
+        # Start the next search after the previously found position
+        index = pi_string.find(pattern, index + 1)
+
+    return positions
+
+if __name__ == "__main__":
+    number_to_search = input("Enter the number pattern you want to search for in Pi: ")
+    
+    # Call the search function with higher precision (e.g., 10000 decimal places)
+    results = search_pi_all(number_to_search, precision=25000)
+
+    if results:
+        total_find = len(results)  # Calculate the total number of times found
+
+        print(f"We found the number pattern '{number_to_search}' in the decimals of Pi at positions: {', '.join(map(str, results))}.")
+        print(f"Total occurrences found in {mp.dps} decimals of Pi: {total_find}")
+
+    else:
+        print(f"The number pattern '{number_to_search}' was not found in Pi.")
