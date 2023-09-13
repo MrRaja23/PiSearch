@@ -12,3 +12,7 @@ The function continues searching for the pattern until it cannot find it anymore
 The main function of the program first asks the user to enter the number pattern they want to search for in Pi. Then, it calls the search_pi_all() function with the number pattern and the desired precision (25000 decimal places).
 
 If the pattern is found, the function prints the positions where the pattern was found and the total number of times it was found. Otherwise, the function prints a message saying that the pattern was not found.
+
+Here is an Example Output for pattern 420 in the PiDecimals:
+
+  ![image](https://github.com/Nielymmah/PiSearch/assets/103298455/18c19573-c7e1-4899-a3ad-cd6ced8ebca9)
